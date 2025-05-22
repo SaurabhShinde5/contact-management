@@ -6,8 +6,11 @@ import {
   updateContact,
   removeContact,
 } from "../controller/contactController.js";
+import { validateToken } from "../middleware/validateTokenHnadler.js";
 
 const router = express.Router();
+
+router.use(validateToken);
 
 router.route("/").get(getContacts).post(createContact);
 
